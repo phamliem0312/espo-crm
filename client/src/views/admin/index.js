@@ -123,12 +123,6 @@ class AdminIndexView extends View {
 
         this.iframeUrl = null;
 
-        if (~this.iframeUrl.indexOf('?')) {
-            this.iframeUrl += '&' + iframeParams.join('&');
-        } else {
-            this.iframeUrl += '?' + iframeParams.join('&');
-        }
-
         if (!this.getConfig().get('adminNotificationsDisabled')) {
             this.createView('notificationsPanel', 'views/admin/panels/notifications', {
                 selector: '.notifications-panel-container'
