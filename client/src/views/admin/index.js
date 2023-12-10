@@ -121,7 +121,13 @@ class AdminIndexView extends View {
                 '/' + this.getThemeManager().getStylesheet())
         ];
 
-        this.iframeUrl = null;
+        this.iframeUrl = this.getConfig().get('adminPanelIframeUrl') || null;
+
+        if (~this.iframeUrl.indexOf('?')) {
+            this.iframeUrl += '&' + iframeParams.join('&');
+        } else {
+            this.iframeUrl += '?' + iframeParams.join('&');
+        }
 
         if (!this.getConfig().get('adminNotificationsDisabled')) {
             this.createView('notificationsPanel', 'views/admin/panels/notifications', {
