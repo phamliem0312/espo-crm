@@ -121,7 +121,7 @@ class AdminIndexView extends View {
                 '/' + this.getThemeManager().getStylesheet())
         ];
 
-        this.iframeUrl = this.getConfig().get('adminPanelIframeUrl') || 'https://s.espocrm.com/';
+        this.iframeUrl = this.getConfig().get('adminPanelIframeUrl') || null;
 
         if (~this.iframeUrl.indexOf('?')) {
             this.iframeUrl += '&' + iframeParams.join('&');
