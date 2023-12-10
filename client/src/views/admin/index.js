@@ -121,7 +121,7 @@ class AdminIndexView extends View {
                 '/' + this.getThemeManager().getStylesheet())
         ];
 
-        this.iframeUrl = this.getConfig().get('adminPanelIframeUrl') || null;
+        this.iframeUrl = null;
 
         if (~this.iframeUrl.indexOf('?')) {
             this.iframeUrl += '&' + iframeParams.join('&');
