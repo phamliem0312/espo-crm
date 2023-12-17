@@ -2,7 +2,6 @@
     <img  class="background">
     <div class="auth-container">
         <div class='welcome'>
-            <img src="client/modules/basic-theme/images/login_logo.png">
         </div>
         <div class="card">
             <header class="auth-header">
@@ -11,7 +10,7 @@
                 </div>
             </header>
             <div class="auth-content">
-                <p class="text-center title-login">Welcome to <br> 
+                <p class="text-center title-login">Welcome<br> 
                     <span class="brand-name"></span>
                 </p>
                 <form id="login-form" onsubmit="return false;">
