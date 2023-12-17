@@ -12,7 +12,7 @@
             </header>
             <div class="auth-content">
                 <p class="text-center title-login">Welcome to <br> 
-                    <span class="brand-name">Clinic plus</span>
+                    <span class="brand-name"></span>
                 </p>
                 <form id="login-form" onsubmit="return false;">
                     <div class="input-field">
