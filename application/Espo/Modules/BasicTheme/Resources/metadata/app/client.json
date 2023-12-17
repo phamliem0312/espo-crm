@@ -1,0 +1,8 @@
+{
+    "cssList": [
+        "__APPEND__",
+        "client/modules/basic-theme/lib/css/flaticon.css",
+        "client/modules/basic-theme/lib/css/inter.css",
+        "client/modules/basic-theme/lib/css/login.css"
+    ]
+}
