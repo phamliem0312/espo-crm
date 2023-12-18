@@ -1,8 +1,2 @@
 {
-    "viewSetupHandlers": {
-        "list": [
-            "__APPEND__",
-            "basic-theme:views/handler-list"
-        ]
-    }
 }
