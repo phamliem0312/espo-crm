@@ -1,4 +1,5 @@
 <?php
+
 /************************************************************************
  * This file is part of EspoCRM.
  *
@@ -37,6 +38,7 @@ use Espo\ORM\Entity;
 use Espo\Modules\Crm\Entities\Lead as LeadEntity;
 use Espo\Services\Record;
 use Espo\Core\Di;
+use Espo\Modules\SmsProviders\SmsSf\SmsSfSender;
 
 /**
  * @extends Record<LeadEntity>
@@ -47,11 +49,29 @@ class Lead extends Record
         'targetLists' => ['isOptedOut'],
     ];
 
+    private $sender;
+
+    public function __construct(string $entityType = '', SmsSfSender $sender)
+    {
+        parent::__construct($entityType);
+        $this->sender = $sender;
+    }
+
     /**
      * @param LeadEntity $entity
      */
     protected function afterCreateEntity(Entity $entity, $data)
     {
+        if (!empty($data->phoneNumberData)) {
+            foreach ($data->phoneNumberData as $obj) {
+                if ($obj->primary) {
+                    $this->sender->send([
+                        'body' => "Welcome to SF CRM.",
+                        'numberList' => [$obj->phoneNumber]
+                    ]);
+                }
+            }
+        }
         if (!empty($data->emailId)) {
             /** @var ?Email $email */
             $email = $this->entityManager->getEntityById(Email::ENTITY_TYPE, $data->emailId);
